@@ -6,6 +6,7 @@ source("functions.r")
 
 require(ggplot2)
 require(cowplot)
+library(lme4)
 theme_set(theme_cowplot())
 
 Psychometric = SimulatePsychometricData(nParticipants = 5,
