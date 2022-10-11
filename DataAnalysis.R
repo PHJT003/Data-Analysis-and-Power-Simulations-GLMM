@@ -112,13 +112,13 @@ ResultsDifferentAnalyses = data.frame(Analysis = c("t test PSE",
 Parameters$ConditionOfInterest[Parameters$ConditionOfInterest == 1] = "Condition of Interest"
 Parameters$ConditionOfInterest[Parameters$ConditionOfInterest == 0] = "Baseline"
 
-Parameters$Mean_ID = c()
+Parameters$Mean_ID = NA
 for (i in 1:length(rownames(ranef(LMM_Mean_ID)$ID))){
   Participant = rownames(ranef(LMM_Mean_ID)$ID)[i]
   Parameters$Mean_ID[Parameters$ID == Participant] = Parameters$Mean[Parameters$ID == Participant]-ranef(LMM_Mean_ID)$ID$"(Intercept)"[i]
 }
 
-Parameters$Mean_ID_StandardValues = c()
+Parameters$Mean_ID_StandardValues = NA
 for (i in 1:length(rownames(ranef(LMM_Mean_ID_SV)$ID))){
   for (j in 1:length(rownames(ranef(LMM_Mean_ID_SV)$StandardValues))){
     Participant = rownames(ranef(LMM_Mean_ID_SV)$ID)[i]
