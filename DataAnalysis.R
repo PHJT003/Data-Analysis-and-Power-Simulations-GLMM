@@ -1,13 +1,19 @@
 set.seed(34)
 
+# for p-values in mixed-models
+if (!require("lmerTest")) {
+  install.packages("lmerTest")
+} 
+
+# require(ggplot2)
+require(cowplot)
+library(lme4)
+library(tidyverse)
+theme_set(theme_cowplot())
+
 setwd(paste0(dirname(rstudioapi::getSourceEditorContext()$path)))
 source("SimulateDataFunction.r")
 source("functions.r")
-
-require(ggplot2)
-require(cowplot)
-library(lme4)
-theme_set(theme_cowplot())
 
 Psychometric = SimulatePsychometricData(nParticipants = 5,
                                         ConditionOfInterest = c(0,1),
